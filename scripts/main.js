@@ -1,4 +1,5 @@
 let myLibrary=[];
+const tableDiv=document.querySelector("#tableDiv");
 
 function Book(number, title, author, pages, read){
     this.number=number
@@ -32,3 +33,5 @@ table+="</table>";
 console.log(table);
 
 console.table(myLibrary);
+
+tableDiv.innerHTML=table;
