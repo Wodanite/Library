@@ -8,6 +8,27 @@ function Book(number, title, author, pages, read){
     this.read=read
 }
 
-const firstBook=new Book("1","Metro 2033","Dmitri Gluchovsky","845","yes");
+function addBookToLibrary(numberInput, titleInput, authorInput, pagesInput, readInput){
+    const book=new Book(numberInput,titleInput, authorInput, pagesInput, readInput);
+    myLibrary.push(book);
+}
 
-console.log(firstBook.title);
+for(let i=0;i<10;i++){
+    addBookToLibrary(i,i+"input","someAuthor",i*5,"yes");
+}
+
+let table="<table>";
+
+for(let i=0;i<myLibrary.length;i++){
+    table+="<tr>";
+    table+="<td>";
+    table+=myLibrary[i];
+    table+="</td>"
+    table+="</tr>"
+}
+
+table+="</table>";
+
+console.log(table);
+
+console.table(myLibrary);
