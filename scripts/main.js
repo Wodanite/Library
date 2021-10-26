@@ -23,15 +23,23 @@ let table="<table>";
 for(let i=0;i<myLibrary.length;i++){
     table+="<tr>";
     table+="<td>";
-    table+=myLibrary[i];
+    table+=myLibrary[i].number;
+    table+="</td>"
+    table+="<td>";
+    table+=myLibrary[i].title;
+    table+="</td>"
+    table+="<td>";
+    table+=myLibrary[i].author;
+    table+="</td>"
+    table+="<td>";
+    table+=myLibrary[i].pages;
+    table+="</td>"
+    table+="<td>";
+    table+=myLibrary[i].read;
     table+="</td>"
     table+="</tr>"
 }
 
 table+="</table>";
-
-console.log(table);
-
-console.table(myLibrary);
 
 tableDiv.innerHTML=table;
