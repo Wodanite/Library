@@ -52,10 +52,10 @@ addBookButton.addEventListener("click",()=>{
 
     const submitButton=document.querySelector("#submitButton");
     submitButton.addEventListener("click",()=>{
-        let author=document.querySelector("#authorInput").value;
-        let title=document.querySelector("#titleInput").value;
+        let author=document.querySelector("#authorInput").innerText;
+        let title=document.querySelector("#titleInput").innerText;
         let pages=document.querySelector("#pagesInput").value;
-        let readStatus=document.querySelector("#readStatusInput").value;
+        let readStatus=document.querySelector("#readStatusInput").innerText;
         addBookToLibrary(author,title,pages,readStatus);
 
         createTable();
