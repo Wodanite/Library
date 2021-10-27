@@ -42,8 +42,6 @@ function createTable(){
     table+="</table>";
     
     tableDiv.innerHTML=table;
-
-    console.log("here I am");
 }
 
 createTable();
@@ -61,6 +59,8 @@ addBookButton.addEventListener("click",()=>{
         addBookToLibrary(author,title,pages,readStatus);
 
         createTable();
+
+        document.body.removeChild(addBookForm);
     });
 });
 
