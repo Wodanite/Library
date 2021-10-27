@@ -1,5 +1,7 @@
 let myLibrary=[];
 const tableDiv=document.querySelector("#tableDiv");
+const addBookForm=document.createElement("div");
+const addBookButton=document.querySelector("#addBookButton");
 
 function Book(number, title, author, pages, read){
     this.number=number
@@ -43,3 +45,7 @@ for(let i=0;i<myLibrary.length;i++){
 table+="</table>";
 
 tableDiv.innerHTML=table;
+
+addBookButton.addEventListener("click",()=>{
+    addBookButton.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><input type="submit" value="Add new Book"></form>';
+});
