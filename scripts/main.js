@@ -20,28 +20,32 @@ for(let i=0;i<10;i++){
     addBookToLibrary(i+"input","someAuthor",i*5,"yes");
 }
 
-let table="<table>";
+function createTable(){
+    let table="<table>";
 
-for(let i=0;i<myLibrary.length;i++){
-    table+="<tr>";
-    table+="<td>";
-    table+=myLibrary[i].title;
-    table+="</td>"
-    table+="<td>";
-    table+=myLibrary[i].author;
-    table+="</td>"
-    table+="<td>";
-    table+=myLibrary[i].pages;
-    table+="</td>"
-    table+="<td>";
-    table+=myLibrary[i].read;
-    table+="</td>"
-    table+="</tr>"
+    for(let i=0;i<myLibrary.length;i++){
+        table+="<tr>";
+        table+="<td>";
+        table+=myLibrary[i].title;
+        table+="</td>"
+        table+="<td>";
+        table+=myLibrary[i].author;
+        table+="</td>"
+        table+="<td>";
+        table+=myLibrary[i].pages;
+        table+="</td>"
+        table+="<td>";
+        table+=myLibrary[i].read;
+        table+="</td>"
+        table+="</tr>"
+    }
+    
+    table+="</table>";
+    
+    tableDiv.innerHTML=table;
 }
 
-table+="</table>";
-
-tableDiv.innerHTML=table;
+createTable();
 
 addBookButton.addEventListener("click",()=>{
     addBookForm.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton">Add new Book</button></form>';
