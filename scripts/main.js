@@ -3,7 +3,8 @@ const tableDiv=document.querySelector("#tableDiv");
 const addBookForm=document.createElement("div");
 const addBookButton=document.querySelector("#addBookButton");
 
-function Book(title, author, pages, read){
+function Book(index, title, author, pages, read){
+    this.index=index
     this.title=title
     this.author=author
     this.pages=pages
@@ -11,7 +12,8 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary(titleInput, authorInput, pagesInput, readInput){
-    const book=new Book(titleInput, authorInput, pagesInput, readInput);
+    let bookIndex=myLibrary.length;
+    const book=new Book(bookIndex, titleInput, authorInput, pagesInput, readInput);
     myLibrary.push(book);
 }
 
@@ -25,6 +27,9 @@ function createTable(){
     for(let i=0;i<myLibrary.length;i++){
         table+="<tr>";
         table+="<td>";
+        table+=myLibrary[i].index+1;
+        table+="</td>"
+        table+="<td>";
         table+=myLibrary[i].title;
         table+="</td>"
         table+="<td>";
@@ -35,6 +40,9 @@ function createTable(){
         table+="</td>"
         table+="<td>";
         table+=myLibrary[i].read;
+        table+="</td>"
+        table+="<td>";
+        table+="<button>Remove Book</button>"
         table+="</td>"
         table+="</tr>"
     }
@@ -52,10 +60,10 @@ addBookButton.addEventListener("click",()=>{
 
     const submitButton=document.querySelector("#submitButton");
     submitButton.addEventListener("click",()=>{
-        let author=document.querySelector("#authorInput").innerText;
-        let title=document.querySelector("#titleInput").innerText;
+        let author=document.querySelector("#authorInput").value;
+        let title=document.querySelector("#titleInput").value;
         let pages=document.querySelector("#pagesInput").value;
-        let readStatus=document.querySelector("#readStatusInput").innerText;
+        let readStatus=document.querySelector("#readStatusInput").value;
         addBookToLibrary(author,title,pages,readStatus);
 
         createTable();
