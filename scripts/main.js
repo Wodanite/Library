@@ -77,11 +77,17 @@ function removeBook(){
     let removeBookButtons=document.querySelectorAll(".removeBookButton");
     removeBookButtons.forEach((button)=>{
         button.addEventListener("click",()=>{
-            let buttonID=6;
+            let buttonID=getID(button);
+            console.log(buttonID);
             myLibrary.splice(buttonID,1);
             createTable();
         });
     });
+}
+
+function getID(btn){
+    let id=btn.id;
+    return id;
 }
 
 createTable();
