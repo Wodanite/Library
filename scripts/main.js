@@ -2,7 +2,6 @@ let myLibrary=[];
 const tableDiv=document.querySelector("#tableDiv");
 const addBookForm=document.createElement("div");
 const addBookButton=document.querySelector("#addBookButton");
-const submitButton=document.querySelector("#submitButton");
 
 function Book(title, author, pages, read){
     this.title=title
@@ -43,19 +42,25 @@ function createTable(){
     table+="</table>";
     
     tableDiv.innerHTML=table;
+
+    console.log("here I am");
 }
 
 createTable();
 
 addBookButton.addEventListener("click",()=>{
-    addBookForm.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton">Add new Book</button></form>';
+    addBookForm.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton" type="reset">Add new Book</button></form>';
     document.body.appendChild(addBookForm);
+
+    const submitButton=document.querySelector("#submitButton");
+    submitButton.addEventListener("click",()=>{
+        let author=document.querySelector("#authorInput").value;
+        let title=document.querySelector("#titleInput").value;
+        let pages=document.querySelector("#pagesInput").value;
+        let readStatus=document.querySelector("#readStatusInput").value;
+        addBookToLibrary(author,title,pages,readStatus);
+
+        createTable();
+    });
 });
 
-submitButton.addEventListener("click",()=>{
-    let author=document.querySelector("#authorInput").value;
-    let title=document.querySelector("#titleInput").value;
-    let pages=document.querySelector("#pagesInput").value;
-    let readStatus=document.querySelector("#readStatusInput").value;
-    addBookToLibrary(author,title,pages,readStatus);
-});
