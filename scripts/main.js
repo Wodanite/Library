@@ -28,7 +28,7 @@ function createTable(){
         let buttonID=i;
         table+="<tr>";
         table+="<td>";
-        table+=myLibrary[i].index+1;
+        table+=i+1;
         table+="</td>"
         table+="<td>";
         table+=myLibrary[i].title;
@@ -72,8 +72,6 @@ addBookButton.addEventListener("click",()=>{
             createTable();
 
             document.body.removeChild(addBookForm);
-        }else{
-            addBookForm.innerText="Error";
         }
     });
 });
