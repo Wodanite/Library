@@ -25,6 +25,7 @@ function createTable(){
     let table="<table>";
 
     for(let i=0;i<myLibrary.length;i++){
+        let buttonID=i;
         table+="<tr>";
         table+="<td>";
         table+=myLibrary[i].index+1;
@@ -42,7 +43,7 @@ function createTable(){
         table+=myLibrary[i].read;
         table+="</td>"
         table+="<td>";
-        table+="<button>Remove Book</button>"
+        table+=`<button class='removeBookButton' id='${buttonID}'>Remove Book</button>`
         table+="</td>"
         table+="</tr>"
     }
@@ -50,9 +51,9 @@ function createTable(){
     table+="</table>";
     
     tableDiv.innerHTML=table;
-}
 
-createTable();
+    removeBook();
+}
 
 addBookButton.addEventListener("click",()=>{
     addBookForm.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton" type="reset">Add new Book</button></form>';
@@ -72,3 +73,15 @@ addBookButton.addEventListener("click",()=>{
     });
 });
 
+function removeBook(){
+    let removeBookButtons=document.querySelectorAll(".removeBookButton");
+    removeBookButtons.forEach((button)=>{
+        button.addEventListener("click",()=>{
+            let buttonID=6;
+            myLibrary.splice(buttonID,1);
+            createTable();
+        });
+    });
+}
+
+createTable();
