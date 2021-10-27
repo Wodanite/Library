@@ -65,11 +65,16 @@ addBookButton.addEventListener("click",()=>{
         let title=document.querySelector("#titleInput").value;
         let pages=document.querySelector("#pagesInput").value;
         let readStatus=document.querySelector("#readStatusInput").value;
-        addBookToLibrary(author,title,pages,readStatus);
 
-        createTable();
+        if(checkForHtml(author)==false && checkForHtml(title)==false && checkForHtml(pages)==false && checkForHtml(readStatus)==false){
+            addBookToLibrary(author,title,pages,readStatus);
 
-        document.body.removeChild(addBookForm);
+            createTable();
+
+            document.body.removeChild(addBookForm);
+        }else{
+            addBookForm.innerText="Error";
+        }
     });
 });
 
@@ -88,6 +93,14 @@ function removeBook(){
 function getID(btn){
     let id=btn.id;
     return id;
+}
+
+function checkForHtml(checkValue){
+    let expressionFound=false;
+    if(checkValue.includes("<") || checkValue.includes(">")){
+        expressionFound=true;
+    }
+    return expressionFound;
 }
 
 createTable();
