@@ -38,6 +38,7 @@ h1{
 td, th{
     border: 1px solid black;
     padding: 0.4rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 th{
@@ -60,4 +61,20 @@ td>button{
 
 td>button:hover{
     color: rgb(61, 47, 41);
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: coral;
+    height: 400px;
+    width: 300px;
+}
+
+.inputContainer{
+    height: 50px;
+    width: 240px;
+    background-color: cornflowerblue;
 }
