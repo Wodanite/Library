@@ -67,6 +67,8 @@ addBookButton.addEventListener("click",()=>{
     addBookForm.innerHTML='<form><div class="inputContainer"><label for="title">Title</label><input type="text" name="title" id="titleInput"></div><div class="inputContainer"><label for="author">Author</label><input type="text" name="author" id="authorInput"></div><div class="inputContainer"><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"></div><div class="inputContainer"><label for="readStatus">Read Status</label><select name="readStatus" id="readStatusInput"><option value="yes">yes</option><option value="no">no</option></select></div><button id="submitButton" type="reset">Add new Book</button></form>';
     document.body.appendChild(addBookForm);
 
+    document.body.style="overflow: hidden";
+
     const submitButton=document.querySelector("#submitButton");
     submitButton.addEventListener("click",()=>{
         let title=document.querySelector("#titleInput").value;
@@ -81,6 +83,7 @@ addBookButton.addEventListener("click",()=>{
 
             document.body.removeChild(addBookForm);
         }
+        document.body.style="overflow: auto";
     });
 });
 

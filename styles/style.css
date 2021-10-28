@@ -1,3 +1,7 @@
+body{
+    position: relative;
+}
+
 header{
     border-bottom: 1px solid black;
     position: sticky;
@@ -71,6 +75,10 @@ form{
     background-color: coral;
     height: 400px;
     width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    transform: translateX(-50%);
 }
 
 .inputContainer{
