@@ -99,9 +99,13 @@ function toggleReadStatus(){
         button.addEventListener("click",()=>{
             let buttonID=getID(button);
             let index=buttonID.slice(6);
-            console.log(myLibrary[index].author);
             
-            
+            if(myLibrary[index].read=="yes"){
+                myLibrary[index].read="no";
+            }else{
+                myLibrary[index].read="yes";
+            }
+            console.log(myLibrary[index].read);
             
         });
     });
