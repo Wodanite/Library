@@ -17,7 +17,7 @@ function addBookToLibrary(titleInput, authorInput, pagesInput, readInput){
     myLibrary.push(book);
 }
 
-for(let i=0;i<24;i++){
+for(let i=0;i<32;i++){
     addBookToLibrary(i+"input","someAuthor",i*5,"yes");
 }
 
