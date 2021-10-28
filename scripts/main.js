@@ -86,7 +86,6 @@ function removeBook(){
     removeBookButtons.forEach((button)=>{
         button.addEventListener("click",()=>{
             let buttonID=getID(button);
-            console.log(buttonID);
             myLibrary.splice(buttonID,1);
             createTable();
         });
@@ -105,8 +104,8 @@ function toggleReadStatus(){
             }else{
                 myLibrary[index].read="yes";
             }
-            console.log(myLibrary[index].read);
             
+            createTable();
         });
     });
 }
