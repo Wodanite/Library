@@ -15,3 +15,30 @@ h1{
 #navBar{
     border-bottom: 1px solid black;
 }
+
+#tableDiv{
+    background-color: burlywood;
+}
+
+table{
+
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 0.4rem;
+}
+
+.titleColumn{
+    width: 30%;
+}
+
+.authorColumn{
+    width: 20%;
+}
+
+td>button{
+    border: none;
+    padding: 0px;
+    background: none;
+}

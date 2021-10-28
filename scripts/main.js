@@ -17,24 +17,27 @@ function addBookToLibrary(titleInput, authorInput, pagesInput, readInput){
     myLibrary.push(book);
 }
 
-for(let i=0;i<10;i++){
+for(let i=0;i<24;i++){
     addBookToLibrary(i+"input","someAuthor",i*5,"yes");
 }
 
 function createTable(){
     let table="<table>";
+    let tableHead="<thead><tr><th>Index</th><th class='titleColumn'>Title</th><th class='authorColumn'>Author</th><th>Pages</th><th>Read</th><th></th><th></th></tr></thead>";
+
+    table+=tableHead;
 
     for(let i=0;i<myLibrary.length;i++){
         let removeButtonID="remove"+i;
         let toggleButtonID="toggle"+i;
         table+="<tr>";
-        table+="<td>";
+        table+="<th>";
         table+=i+1;
-        table+="</td>"
-        table+="<td>";
+        table+="</th>"
+        table+="<td class='titleColumn'>";
         table+=myLibrary[i].title;
         table+="</td>"
-        table+="<td>";
+        table+="<td class='authorColumn'>";
         table+=myLibrary[i].author;
         table+="</td>"
         table+="<td>";
