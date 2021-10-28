@@ -79,10 +79,38 @@ form{
     left: 50%;
     top: 300px;
     transform: translateX(-50%);
+    border: 5px solid rgb(138, 128, 128);
+    border-radius: 5px;
+}
+
+input{
+    width: 230px;
+    margin: auto;
+    margin-top: 3px;
+    height: 24px;
 }
 
 .inputContainer{
     height: 50px;
     width: 240px;
     background-color: cornflowerblue;
+    padding: 5px;
+}
+
+label{
+    display: block;
+}
+
+#submitButton{
+    height: 32px;
+    width: 120px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px;
+    margin: 2px;
+    background: rgb(236, 209, 191);
+}
+
+#submitButton:hover{
+    background: rgb(71, 143, 62);
 }
