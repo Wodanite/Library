@@ -25,7 +25,8 @@ function createTable(){
     let table="<table>";
 
     for(let i=0;i<myLibrary.length;i++){
-        let buttonID=i;
+        let removeButtonID="remove"+i;
+        let toggleButtonID="toggle"+i;
         table+="<tr>";
         table+="<td>";
         table+=i+1;
@@ -43,7 +44,10 @@ function createTable(){
         table+=myLibrary[i].read;
         table+="</td>"
         table+="<td>";
-        table+=`<button class='removeBookButton' id='${buttonID}'>Remove Book</button>`
+        table+=`<button class='removeBookButton' id='${removeButtonID}'>Remove Book</button>`
+        table+="</td>"
+        table+="<td>";
+        table+=`<button class='toggleReadStatusButton' id='${toggleButtonID}'>Change Read Status</button>`
         table+="</td>"
         table+="</tr>"
     }
@@ -53,21 +57,22 @@ function createTable(){
     tableDiv.innerHTML=table;
 
     removeBook();
+    toggleReadStatus();
 }
 
 addBookButton.addEventListener("click",()=>{
-    addBookForm.innerHTML='<form><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton" type="reset">Add new Book</button></form>';
+    addBookForm.innerHTML='<form><label for="title">Title</label><input type="text" name="title" id="titleInput"><br><label for="author">Author</label><input type="text" name="author" id="authorInput"><br><label for="pages">Number of pages</label><input type="number" name="pages" id="pagesInput"><br><label for="readStatus">Read Status</label><input type="text" name="readStatus" id="readStatusInput"><br><button id="submitButton" type="reset">Add new Book</button></form>';
     document.body.appendChild(addBookForm);
 
     const submitButton=document.querySelector("#submitButton");
     submitButton.addEventListener("click",()=>{
-        let author=document.querySelector("#authorInput").value;
         let title=document.querySelector("#titleInput").value;
+        let author=document.querySelector("#authorInput").value;
         let pages=document.querySelector("#pagesInput").value;
         let readStatus=document.querySelector("#readStatusInput").value;
 
-        if(checkForHtml(author)==false && checkForHtml(title)==false && checkForHtml(pages)==false && checkForHtml(readStatus)==false){
-            addBookToLibrary(author,title,pages,readStatus);
+        if(checkForHtml(title)==false && checkForHtml(author)==false && checkForHtml(pages)==false && checkForHtml(readStatus)==false){
+            addBookToLibrary(title,author,pages,readStatus);
 
             createTable();
 
@@ -84,6 +89,20 @@ function removeBook(){
             console.log(buttonID);
             myLibrary.splice(buttonID,1);
             createTable();
+        });
+    });
+}
+
+function toggleReadStatus(){
+    let toggleReadStatusButtons=document.querySelectorAll(".toggleReadStatusButton");
+    toggleReadStatusButtons.forEach((button)=>{
+        button.addEventListener("click",()=>{
+            let buttonID=getID(button);
+            let index=buttonID.slice(6);
+            console.log(myLibrary[index].author);
+            
+            
+            
         });
     });
 }
