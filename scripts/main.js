@@ -71,7 +71,7 @@ addBookButton.addEventListener("click",()=>{
         let pages=document.querySelector("#pagesInput").value;
         let readStatus=document.querySelector("#readStatusInput").value;
 
-        if(checkForHtml(title)==false && checkForHtml(author)==false && checkForHtml(pages)==false && checkForHtml(readStatus)==false){
+        if(checkForHtml(title)==false && checkForHtml(author)==false){
             addBookToLibrary(title,author,pages,readStatus);
 
             createTable();

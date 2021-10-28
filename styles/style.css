@@ -1,0 +1,17 @@
+header{
+    border-bottom: 1px solid black;
+}
+
+h1{
+    font-size: 84px;
+    margin: 20px;
+}
+
+#addBookButton{
+    height: 32px;
+    width: 86px;
+}
+
+#navBar{
+    border-bottom: 1px solid black;
+}
