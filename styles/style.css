@@ -42,3 +42,7 @@ td>button{
     padding: 0px;
     background: none;
 }
+
+td>button:hover{
+    color: rgb(61, 47, 41);
+}
