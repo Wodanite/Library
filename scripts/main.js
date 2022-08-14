@@ -89,7 +89,6 @@ addBookButton.addEventListener("click", () => {
 
 function removeBook() {
     let removeBookButtons = document.querySelectorAll(".removeBookButton");
-    console.log(removeBookButtons);
     removeBookButtons.forEach((button) => {
         button.addEventListener("click", () => {
             let buttonID = getID(button);
